@@ -1,5 +1,6 @@
 import copy
 import torchio as tio
+from sys import platform
 from glob import glob
 from random import randint
 from torchio import Subject, SubjectsDataset
@@ -30,7 +31,10 @@ class ImageSubjectsDataset(SubjectsDataset):
         folders = []
         for key in self.paths.keys():
             folder_path = glob(f'{self.paths[key]}/*')
-            folders.append(list(map(lambda x: x.split('/')[-1], folder_path)))
+            if platform == 'win32':
+            	folders.append(list(map(lambda x: x.split('\\')[-1], folder_path)))
+            else:
+            	folders.append(list(map(lambda x: x.split('/')[-1], folder_path)))
         return list(set(folders[0]) & set(folders[1]))
     
     def _get_subjects(self) -> Sequence[Subject]:
