@@ -22,10 +22,6 @@ def dataset_transform(reshape=(128, 128, 32), augumentation=False):
   
 
 def split_dataset(dataset, test_size=0.2, train_transform=None, test_transform=None, seed=seed(), expand_ds=0):
-    """
-    Function slits dataset into train, valid dataset with valid fraction of test_size and with expanding of train
-    dataset expand_ds times (user transform with augumentation for this!)
-    """
     
     train_part, valid_part = train_test_split(dataset, test_size=0.2, random_state=seed)
 

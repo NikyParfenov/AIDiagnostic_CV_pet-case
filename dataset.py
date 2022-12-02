@@ -32,9 +32,9 @@ class ImageSubjectsDataset(SubjectsDataset):
         for key in self.paths.keys():
             folder_path = glob(f'{self.paths[key]}/*')
             if platform == 'win32':
-            	folders.append(list(map(lambda x: x.split('\\')[-1], folder_path)))
+                folders.append(list(map(lambda x: x.split('\\')[-1], folder_path)))
             else:
-            	folders.append(list(map(lambda x: x.split('/')[-1], folder_path)))
+                folders.append(list(map(lambda x: x.split('/')[-1], folder_path)))
         return list(set(folders[0]) & set(folders[1]))
     
     def _get_subjects(self) -> Sequence[Subject]:
@@ -73,7 +73,7 @@ class ImageSubjectsDataset(SubjectsDataset):
             subject = self._transform(subject)
         return subject
     
-  
+
 # from torch.utils.data import Dataset
 # import nibabel as nib
 # import SimpleITK as sitk
