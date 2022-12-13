@@ -1,18 +1,19 @@
 # AIDiagnostic_CV_test_case
 Medical image segmentation
 
-# Тестовое задание
+## CASE DESCRIPTION
 
-## Описание задания
+Build baseline for training of segmentation model for pleural effusion detection. 
 
-Нужно написать бейзлайн для обучения сегментационной нейросети для обнаружения плеврального выпота. 
+It could be used as 2D as 3D architecture.
 
-Обучить можно любую сегментационную нейросеть, можно использовать 2D или 3D архитектуру.
+Code should be separated into files:
 
-Код должен быть разделен следующим образом:
+- file with model architecture
+- file with data preprocessing
+- file with dataset forming
+- file with calculation of [DICE Coef](https://radiopaedia.org/articles/dice-similarity-coefficient#:~:text=The%20Dice%20similarity%20coefficient%2C%20also,between%20two%20sets%20of%20data.)
+- main file with training
 
-- файл с архитектурой модели
-- файл с препроцессингом данных для обучения
-- файл с датасетом
-- файл с функцией подсчета [DICE Coef](https://radiopaedia.org/articles/dice-similarity-coefficient#:~:text=The%20Dice%20similarity%20coefficient%2C%20also,between%20two%20sets%20of%20data.)
-- основной файл с самим циклом обучения. В коде обучения во время валидации автоматически должна  выбираться лучшая эпоха и сохраняться веса модели в папку `output`. Также после цикла обучения в эту папку должна сохраняться картинка с изменениями коэффициента DICE с каждой эпохой. (по оси Y - коэффициент DICE, по оси X - номер эпохи). Вместо выходной картинки с графиком можно использовать любые трекеры при желании (tensorboard etc.)
+NOTE:
+During training the best epoch (relying on validation) should be chose and the model with weight should be saved in `output` folder. After the training the picture with DICE coef changing through epochs should be saved in the same folder (axis Y - DICE coefficient, axis X - epoch number). Instead of picture any trackers could be used (tensorboard etc.)
