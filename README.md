@@ -16,4 +16,6 @@ Code should be separated into files:
 - main file with training
 
 NOTE:
-During training the best epoch (relying on validation) should be chose and the model with weight should be saved in `output` folder. After the training the picture with DICE coef changing through epochs should be saved in the same folder (axis Y - DICE coefficient, axis X - epoch number). Instead of picture any trackers could be used (tensorboard etc.)
+During training the best epoch (relying on validation) should be chose and the model with weight should be saved in `output` folder. After the training the picture with DICE coef changing through epochs should be saved in the same folder (axis Y - DICE coefficient, axis X - epoch number). Instead of picture any trackers could be used (tensorboard etc.)  
+
+![image](https://user-images.githubusercontent.com/63195531/209002670-ad1800e7-93e4-444d-92da-e28ce6fe8008.png)
