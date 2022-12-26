@@ -34,10 +34,10 @@ class UNet(nn.Module):
     def conv_block(self, in_channels, out_channels):
         block = nn.Sequential(nn.Conv3d(in_channels=in_channels, out_channels=out_channels, kernel_size=3, stride=1, padding=1),
                               nn.BatchNorm3d(num_features=out_channels),
-                              nn.ReLU(),
+                              nn.LeakyReLU(0.1),
                               nn.Conv3d(in_channels=out_channels, out_channels=out_channels, kernel_size=3, stride=1, padding=1),
                               nn.BatchNorm3d(num_features=out_channels),
-                              nn.ReLU(),
+                              nn.LeakyReLU(0.1),
                              )
         return block
 
